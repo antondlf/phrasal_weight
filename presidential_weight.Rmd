@@ -14,7 +14,12 @@ This project investigates the sensitivity of phrasal stress to syllable weight u
 Our first step is to load in a syllabified and weight annotated version of CMUDICT and inspecting its structure.
 
 ```{r cars}
-dictionary <- read.delim('clean_sylcmu.txt', sep=',')
-head(dictionary)
+data <- read.delim('students-2023.csv', sep=',')
+check_data <- data[c('word', 'seg', 'nseg', 'steriade_consonants', 'steriade_vowels')]
+
+model <- lm(log.perc~n_heavy + nseg + nsyll, data=data)
+model.2 <- lm(log.perc~nstress + nseg + nsyll, data=data)
+summary(model)
+summary(model.2)
 ```
 
