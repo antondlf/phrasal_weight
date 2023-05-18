@@ -42,6 +42,21 @@ def check_weight_stress(stress, weight):
         return False
 
 
+def count_moras(weight):
+
+    if type(weight) == str:
+        counter = 0
+        for mora in weight:
+
+            if mora == 'L':
+                counter += 1
+
+            elif mora == 'H':
+                counter += 2
+
+        return counter
+
+
 def steriade_consonants(cmu_segs):
     """
     Finds aggregate of inter syllabic
